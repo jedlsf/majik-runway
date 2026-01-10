@@ -1,0 +1,20 @@
+{
+  "name": "majik-runway",
+  "productName": "Majik Runway",
+  "scripts": {
+    "dev:renderer": "cd renderer && npx vite",
+    "dev:electron": "wait-on http://localhost:5173 && tsc -p electron && npx electron dist-electron/main.js",
+    "dev": "concurrently \"npm run dev:renderer\" \"npm run dev:electron\"",
+    "build": "npm run build:renderer && npm run build:electron",
+    "build:renderer": "cd renderer && npx vite build",
+    "copy-assets": "cpx \"electron/assets/**/*\" dist-electron/assets",
+    "build:electron": "tsc -p electron && npm run copy-assets"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "cpx": "^1.5.0",
+    "electron": "^39.2.7",
+    "tailwindcss": "^4.1.18",
+    "wait-on": "^9.0.3"
+  }
+}
