@@ -214,7 +214,7 @@ const InputCostItem: React.FC<InputProps> = ({
             textKey="Subtotal Amount"
             textValue={inputData?.subtotal.format()}
             highlight
-            colorValue={theme.colors.brand.green}
+            colorValue={theme.colors.primary}
           />
         </FormBodyEvent>
       </ScrollableForm>

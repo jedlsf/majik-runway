@@ -14,6 +14,7 @@ import {
   FireIcon,
   ScalesIcon,
   CalendarXIcon,
+  CalendarIcon,
 } from "@phosphor-icons/react";
 import DynamicPagedTab, {
   type TabContent,
@@ -25,6 +26,7 @@ import {
   FundingManager,
   type TaxConfig,
   yyyyMMToDate,
+  type PeriodYYYYMM,
 } from "@thezelijah/majik-runway";
 
 import ChartRevenueTrend from "./Charts/ChartRevenueTrend";
@@ -49,6 +51,7 @@ import ChartExpenseTrend from "./Charts/ChartExpenseTrend";
 import { TargetIcon } from "lucide-react";
 import ChartGrossMarginTrend from "./Charts/ChartGrossMarginTrend";
 import { EditableText } from "../foundations/EditableComponents/EditableText";
+import PeriodConfig from "./PeriodConfig";
 
 // ======== Styled Components ========
 const RootContainer = styled.div`
@@ -358,6 +361,26 @@ const DashboardMajikRunway: React.FC<DashboardMajikRunwayProps> = ({
     }
   };
 
+  const handleUpdatePeriod = (input: PeriodYYYYMM) => {
+    try {
+      console.log("Period: ", input);
+      const updatedRunway = runway.updatePeriod(input);
+      setRefreshKey((prev) => prev + 1);
+      onUpdate?.(updatedRunway);
+      handleTabNavigation();
+      toast.success("Changes Saved", {
+        description: `New Period have been saved.`,
+        id: "success-input-majik-runway-dashboard-period",
+      });
+    } catch (error) {
+      console.error("Problem while updating Period: ", error);
+      toast.error("Error", {
+        description: `Oops! There seems to be a problem while updating: ${error}`,
+        id: "error-input-majik-runway-dashboard-period",
+      });
+    }
+  };
+
   const handleUpdateOpeningBalance = (input: string) => {
     try {
       console.log("Opening Balance: ", input);
@@ -548,9 +571,7 @@ const DashboardMajikRunway: React.FC<DashboardMajikRunwayProps> = ({
                 <CalendarXIcon size={20} />
                 Cash-Out Date
               </CardTitle>
-              <CardValue>
-                {dashboardSnapshot.cashOutDate ?? "N/A"}
-              </CardValue>
+              <CardValue>{dashboardSnapshot.cashOutDate ?? "N/A"}</CardValue>
             </Card>
           </HeaderCards>
 
@@ -633,6 +654,16 @@ const DashboardMajikRunway: React.FC<DashboardMajikRunwayProps> = ({
             fundingManager={fundingManager}
             onUpdate={handleUpdateFundingManager}
           />
+        </>
+      ),
+    },
+    {
+      id: "info-period",
+      name: "Period",
+      icon: CalendarIcon,
+      content: (
+        <>
+          <PeriodConfig period={runway.period} onSubmit={handleUpdatePeriod} />
         </>
       ),
     },

@@ -117,6 +117,10 @@ export class MajikRunway {
     return hasIncomeTax || hasVAT || hasPercentageTax;
   }
 
+  get period(): PeriodYYYYMM {
+    return this.model.period;
+  }
+
   /* ---------- Period ---------- */
 
   /**

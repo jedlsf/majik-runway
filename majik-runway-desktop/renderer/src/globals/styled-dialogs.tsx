@@ -36,7 +36,7 @@ export const DialogContent = styled(AlertDialog.Content)`
   border-radius: ${({ theme }) => theme.borders.radius.large};
   padding: 2.5em;
   gap: 10px;
-  width: 350px;
+  width: 550px;
   max-width: 90vw;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border: 1px solid transparent;
@@ -44,6 +44,7 @@ export const DialogContent = styled(AlertDialog.Content)`
   align-items: center;
   display: flex;
   flex-direction: column;
+
 `;
 
 // Styled dialog title

@@ -4,6 +4,8 @@ demo/
 .eslintignore
 *.log
 
+majik-runway-desktop/dist-electron/
+dist-electron/
 
 Promo
 Logo_MajikRunway_256px.psd

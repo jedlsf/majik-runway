@@ -221,7 +221,7 @@ const CBaseCostItem: React.FC<CBaseCostItemProps> = ({
                 textKey="Subtotal"
                 textValue={itemData.subtotal.format()}
                 highlight={true}
-                colorValue={theme.colors.brand.green}
+                colorValue={theme.colors.primary}
               />
 
               {!!totalCost && !totalCost.isPositive() ? (

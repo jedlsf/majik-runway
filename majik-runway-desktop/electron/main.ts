@@ -188,7 +188,18 @@ function createWindow() {
     win.loadURL("http://localhost:5173");
     win.webContents.openDevTools();
   } else {
-    win.loadFile(path.join(__dirname, "../renderer/dist/index.html"));
+    // Production or testing production build locally
+    let indexPath: string;
+
+    if (app.getAppPath().includes("app.asar")) {
+      // Packaged installer
+      indexPath = path.join(app.getAppPath(), "renderer/dist/index.html");
+    } else {
+      // Local production build test
+      indexPath = path.join(app.getAppPath(), "../renderer/dist/index.html");
+    }
+    console.log("Loading from:", indexPath); // Debug log
+    win.loadFile(indexPath);
   }
   createMenu(); // Call createMenu after window is created
 }
@@ -231,39 +242,36 @@ function createMenu() {
       label: "Help",
       submenu: [
         {
-          label: "Docs",
-          click: async () => {
-            // Opens the URL in the user's default browser
-            await shell.openExternal(
-              "https://thezelijah.world/tools/finance-majik-runway"
-            ); // Replace with your docs URL
-          },
-        },
-        {
-          label: "About Developer",
+          label: "About Majik Runway",
           click: () => {
             dialog
               .showMessageBox({
                 type: "info",
-                title: "About Majik Runway",
+                title: "About Majik Runway Desktop",
                 message: "Majik Runway",
                 detail:
-                  "Version 1.0.0\n\nDeveloped by Zelijah\nhttps://thezelijah.world/about\n\n© 2025 All rights reserved.",
+                  "Version 1.0.1\n\nDeveloped by Zelijah\nhttps://thezelijah.world\n\n© 2026 All rights reserved.",
                 buttons: ["OK", "Visit Website"],
               })
               .then((result) => {
                 if (result.response === 1) {
-                  // "Visit Website" button was clicked
                   shell.openExternal("https://thezelijah.world");
                 }
               });
           },
         },
         {
+          label: "Docs",
+          click: async () => {
+            await shell.openExternal(
+              "https://thezelijah.world/tools/finance-majik-runway"
+            );
+          },
+        },
+        {
           label: "Developer",
           click: async () => {
-            // Opens the URL in the user's default browser
-            await shell.openExternal("https://thezelijah.world/about"); // Replace with your about URL
+            await shell.openExternal("https://thezelijah.world/about");
           },
         },
         { type: "separator" },
@@ -271,8 +279,8 @@ function createMenu() {
           label: "Report an Issue",
           click: async () => {
             await shell.openExternal(
-              "https://github.com/yourusername/yourrepo/issues"
-            ); // Replace with your repo
+              "https://github.com/jedlsf/majik-runway/issues"
+            );
           },
         },
       ],

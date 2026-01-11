@@ -94,6 +94,7 @@ const StyledIconButton: React.FC<StyledIconButtonProps> = ({
             fontWeight: 400,
             backgroundColor: theme.colors.secondaryBackground,
             zIndex: theme.zIndex.topmost,
+            color: theme.colors.textPrimary
           }}
         />
       ) : null}

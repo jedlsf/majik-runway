@@ -166,7 +166,7 @@ export const WindowMajikRunway = () => {
   return (
     <RootContainer className="rootWindowMajikRunway">
       {!majik || loading ? (
-        <LoadingPage seconds={1} text="Loading Majik Runway...">
+        <LoadingPage seconds={2} text="Loading Majik Runway...">
           <SetupMajikRunway onUpdate={handleRefreshInstance} />
         </LoadingPage>
       ) : (
