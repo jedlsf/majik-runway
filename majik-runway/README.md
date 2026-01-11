@@ -1,10 +1,17 @@
 # Majik Runway
 
+[![Developed by Zelijah](https://img.shields.io/badge/Developed%20by-Zelijah-red?logo=github&logoColor=white)](https://thezelijah.world)
+
 It helps founders, operators, and finance teams understand **how long a business can operate**, **where money is going**, and **how decisions affect survival and growth**.
 
 Majik Runway models your business as a **living financial system**, not a static spreadsheet.
 
 It composes other Majik financial primitives such as [MajikProduct](https://www.npmjs.com/package/@thezelijah/majik-product), [MajikService](https://www.npmjs.com/package/@thezelijah/majik-service), [MajikSubscription](https://www.npmjs.com/package/@thezelijah/majik-subscription), and [MajikMoney](https://www.npmjs.com/package/@thezelijah/majik-money) to produce accurate, period-based projections.
+
+
+![npm](https://img.shields.io/npm/v/@thezelijah/majik-runway) ![npm downloads](https://img.shields.io/npm/dm/@thezelijah/majik-runway) ![npm bundle size](https://img.shields.io/bundlephobia/min/%40thezelijah%2Fmajik-runway) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue)
+
+
 
 ---
 
@@ -14,12 +21,19 @@ It composes other Majik financial primitives such as [MajikProduct](https://www.
 
 > Click the image to try Majik Runway live.
 
+## Standalone Desktop App
+
+[![Majik Runway Thumbnail](https://github.com/user-attachments/assets/da176129-b466-45bc-bb90-774cbf7e71f5)](https://github.com/jedlsf/majik-runway/releases)
+
+> Click the image to download the standalone desktop app.
+
 ---
 
 ## Table of Contents
 
 - [Majik Runway](#majik-runway)
   - [Live Demo](#live-demo)
+  - [Standalone Desktop App](#standalone-desktop-app)
   - [Table of Contents](#table-of-contents)
   - [Overview](#overview)
   - [Key Concepts](#key-concepts)
