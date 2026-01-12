@@ -389,7 +389,6 @@ const CustomInputField: React.FC<CustomInputFieldProps> = ({
 
       onChange?.(capitalizedWord);
     } else {
-
       onChange?.(processedValue);
     }
   };
