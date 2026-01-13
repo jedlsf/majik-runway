@@ -8,7 +8,6 @@ import { ButtonPrimaryConfirm } from "@/globals/buttons";
 import { toast, Toaster } from "sonner";
 import ErrorPlaceholder from "../foundations/ErrorPlaceholder";
 
-
 interface Props {
   children: ReactNode;
   fallback?: ReactNode;
@@ -140,10 +139,8 @@ export class ErrorBoundary extends Component<Props, State> {
                   <AlertDialog.AlertDialogDescription
                     style={{ padding: "0px 25px", fontSize: "12px" }}
                   >
-                    This error has been automatically reported via our internal
-                    logging system (Sentry). For extra assurance, you may also
-                    copy the stack trace below and send it to our support team
-                    at
+                    You may also copy the stack trace below and send it to our
+                    support team at
                     <strong>
                       {" "}
                       <a href="mailto:business@majikah.solutions">

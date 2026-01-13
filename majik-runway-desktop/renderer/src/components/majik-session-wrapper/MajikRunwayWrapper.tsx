@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import MajikRunwaySession from "../../SDK/majik-runway-session";
 import { MajikContext } from "./majik-context";
-import type { MajikRunway } from "@thezelijah/majik-runway";
+import { MajikMoney, type MajikRunway } from "@thezelijah/majik-runway";
 
 export const MajikRunwayWrapper: React.FC<{ children: React.ReactNode }> = ({
   children,
@@ -14,7 +14,11 @@ export const MajikRunwayWrapper: React.FC<{ children: React.ReactNode }> = ({
 
     (async () => {
       try {
-        const instance = await MajikRunwaySession.loadOrCreate();
+        const defaultCurrency = "PHP";
+        const defaultMoney = MajikMoney.zero(defaultCurrency);
+        const instance = await MajikRunwaySession.loadOrCreate({
+          money: defaultMoney,
+        });
 
         if (!mounted) return;
 

@@ -64,7 +64,7 @@ export class MajikRunway {
    * @returns A fully initialized `MajikRunway` instance.
    */
   public static initialize(options?: Partial<BusinessModel>): MajikRunway {
-    const defaultCurrency = options?.money?.currency.code ?? "PHP";
+    const defaultCurrency = options?.money?.currency?.code ?? "PHP";
     const defaultMoney = options?.money ?? MajikMoney.zero(defaultCurrency);
 
     const fundingManager = new FundingManager(defaultCurrency);
