@@ -23,6 +23,9 @@ It composes other Majik financial primitives such as [MajikProduct](https://www.
 
 ## Standalone Desktop App
 
+[![Get it from Microsoft](https://get.microsoft.com/images/en-us%20light.svg)](https://apps.microsoft.com/detail/9MTJ4RZTLD2K?referrer=appbadge&mode=full)
+
+
 [![Majik Runway Thumbnail](https://github.com/user-attachments/assets/da176129-b466-45bc-bb90-774cbf7e71f5)](https://github.com/jedlsf/majik-runway/releases)
 
 > Click the image to download the standalone desktop app.
