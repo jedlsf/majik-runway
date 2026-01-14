@@ -116,7 +116,7 @@ export default function TipTapMenuBar({ editor }: { editor: Editor | null }) {
   ];
 
   return (
-    <div className="border rounded-md p-1 mb-1 space-x-5 z-50">
+    <div className="border rounded-md p-1 mb-1 space-x-10 z-50">
       {Options.map((option, index) => (
         <Toggle
           key={index}

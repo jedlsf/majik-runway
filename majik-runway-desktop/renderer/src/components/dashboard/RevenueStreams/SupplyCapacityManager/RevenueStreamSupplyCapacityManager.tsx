@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 import { ButtonPrimaryConfirm } from "@/globals/buttons";
@@ -85,7 +85,7 @@ const RevenueStreamSupplyCapacityManager: React.FC<
   const [capacityPerMonth, setCapacityPerMonth] = useState<number>(1);
   const [capacityGrowthRate, setCapacityGrowthRate] = useState<number>(0);
 
-  const itemList: MonthlyCapacity[] = useMemo(() => [...item.capacity], [item]);
+  const itemList: MonthlyCapacity[] = item.capacity;
 
   const handleAddToggle = () => {
     setSheetView(GlobalSheetView.CREATE);
@@ -145,7 +145,6 @@ const RevenueStreamSupplyCapacityManager: React.FC<
 
   const handleDeleteItem = (month: YYYYMM) => {
     const updatedCapacityItem = item.removeCapacity(month);
-
 
     onUpdate?.(updatedCapacityItem);
     handleCancel();
@@ -252,6 +251,7 @@ const RevenueStreamSupplyCapacityManager: React.FC<
             itemList.map((capacity, index) => (
               <OptionItem key={index}>
                 <CBaseCapacity
+                  index={index}
                   itemData={capacity}
                   onEdit={handleEditItem}
                   onDelete={(currentItem) =>

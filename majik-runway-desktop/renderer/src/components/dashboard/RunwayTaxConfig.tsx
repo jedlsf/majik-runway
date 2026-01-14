@@ -15,7 +15,7 @@ import { ValueIncrementor } from "../../components/functional/ValueIncrementor";
 
 import { SectionSubTitle } from "../../globals/styled-components";
 import { EditableOption } from "../../components/foundations/EditableComponents/EditableOption";
-import DuoButton from "../../components/foundations/DuoButton";
+import DuoButton from "../foundations/DuoButton";
 
 // Styled components
 const BodyContainer = styled.div`
@@ -339,6 +339,7 @@ export const RunwayTaxConfig: React.FC<RunwayTaxConfigProps> = ({
         <DuoButton
           textButtonA="Revert"
           textButtonB="Save Changes"
+          isDisabledButtonA={!isDirty}
           isDisabledButtonB={!isDirty}
           onClickButtonA={handleRevert}
           onClickButtonB={handleSubmitSave}

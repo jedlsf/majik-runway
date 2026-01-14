@@ -134,11 +134,11 @@ code {
     color-scheme: dark;
   }
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: #f8eee2;
+    background-color: #151515;
   }
   a:hover {
-    color: #747bff;
+    color: #d6f500;
   }
   button {
     background-color: #f9f9f9;
@@ -190,6 +190,107 @@ hr {
   --sidebar-ring: oklch(0.556 0 0);
   --toggle-active: #222020ff; /* or whatever color for dark mode */
   --toggle-hover: #222020ff;
+
+  .gtitle {
+    fill: #ea7f05 !important;
+  }
+
+  .xtitle,
+  .ytitle,
+  .legendtext {
+    fill: #f2e0cb !important;
+  }
+
+  text {
+    fill: #f2e0cb77 !important;
+  }
+
+  .xgrid,
+  .ygrid {
+    stroke: #f2e0cb15 !important;
+  }
+}
+
+.dark tfoot [data-slot="table-row"] {
+  background-color: #222020ff !important;
+}
+
+.dark tfoot [data-slot="table-row"]:hover {
+  background-color: #f2e0cb !important;
+  color: #151515 !important;
+}
+
+.dark tfoot [data-slot="table-row"]:hover [data-slot="table-cell"],
+.dark tfoot [data-slot="table-row"]:hover [data-slot="table-cell"] * {
+  color: #151515 !important;
+  --foreground: #151515 !important;
+}
+
+.dark thead [data-slot="table-head"],
+.dark thead [data-slot="table-head"] * {
+  color: #f8eee2 !important;
+  --foreground: #f8eee2 !important;
+}
+
+.dark thead [data-slot="table-row"]:hover [data-slot="table-head"],
+.dark thead [data-slot="table-row"]:hover [data-slot="table-head"] div,
+.dark thead [data-slot="table-row"]:hover [data-slot="table-head"] div svg {
+  color: #151515 !important;
+  --foreground: #151515 !important;
+}
+
+/* Dark Mode for Links */
+[data-slot="table-cell"] {
+  color: #151515 !important;
+}
+
+/* Dark Mode for Links */
+.dark [data-slot="table-cell"] {
+  color: #f8eee2 !important;
+}
+
+.dark tfoot [data-slot="table-cell"],
+.dark tfoot [data-slot="table-cell"] * {
+  transition: color 0.15s ease;
+}
+
+/* Base override for all ShadCN toggles */
+[data-slot="toggle"] {
+  background-color: transparent !important;
+  border-radius: var(--radius) !important;
+  color: var(--foreground) !important;
+  border: 1px solid transparent !important;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Hover state */
+[data-slot="toggle"]:hover {
+  background-color: var(--toggle-hover) !important;
+}
+
+/* Active state (when toggled on) */
+[data-slot="toggle"][data-state="on"] {
+  background-color: #f2e0cb !important;
+  color: #ea7f05 !important;
+}
+
+.dark [data-slot="toggle"] {
+  background-color: transparent !important;
+  color: #f8eee2 !important;
+}
+
+.dark [data-slot="toggle"]:hover {
+  background-color: #222020ff !important;
+  color: #f8eee2 !important;
+}
+
+.dark [data-slot="toggle"][data-state="on"] {
+  background-color: #222020ff !important; /* highlight for active */
+  color: #ea7f05 !important;
+}
+
+.dark .tiptap p {
+  color: #f8eee2 !important;
 }
 
 @theme inline {
@@ -497,11 +598,6 @@ html body[data-scroll-locked] {
   /* Viewport Styling */
   [data-slot="navigation-menu-viewport"] {
     @apply bg-black/50 backdrop-blur-lg rounded-xl shadow-2xl;
-  }
-
-  /* Dark Mode for Links */
-  .dark [data-slot="table-cell"] {
-    color: #f8eee2 !important;
   }
 
   .dark [data-slot="dropdown-menu-sub-trigger"]:hover {

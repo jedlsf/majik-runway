@@ -123,6 +123,7 @@ interface CBaseCapacityProps {
   canEdit?: boolean;
   canDelete?: boolean;
   totalCapacity?: number;
+  index?: number;
 }
 
 const CBaseCapacity: React.FC<CBaseCapacityProps> = ({
@@ -133,6 +134,7 @@ const CBaseCapacity: React.FC<CBaseCapacityProps> = ({
   canEdit = true,
   canDelete = true,
   totalCapacity,
+  index,
 }) => {
   const longPressTimeout = useRef<NodeJS.Timeout | null>(null);
   const handleOnPressed = () => {
@@ -198,7 +200,11 @@ const CBaseCapacity: React.FC<CBaseCapacityProps> = ({
       <BodyContainer onClick={handleOnPressed}>
         <ColumnInfo>
           <ColumnMain>
-            <ItemTitle>{itemData?.month ?? "Unknown Month"}</ItemTitle>
+            <ItemTitle>
+              {typeof index === "number" && index >= 0
+                ? `Month ${index + 1}: ${itemData?.month}`
+                : itemData?.month ?? "Unknown Month"}
+            </ItemTitle>
             <SubColumnContainer>
               <RowTextItem
                 textKey="Capacity"

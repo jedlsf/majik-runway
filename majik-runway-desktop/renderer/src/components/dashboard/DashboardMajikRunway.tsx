@@ -52,6 +52,7 @@ import { TargetIcon } from "lucide-react";
 import ChartGrossMarginTrend from "./Charts/ChartGrossMarginTrend";
 import { EditableText } from "../foundations/EditableComponents/EditableText";
 import PeriodConfig from "./PeriodConfig";
+import ThemeToggle from "../functional/ThemeToggle";
 
 // ======== Styled Components ========
 const RootContainer = styled.div`
@@ -129,7 +130,7 @@ const TopHeaderRow = styled.div`
   display: flex;
   gap: 20px;
   flex-direction: row;
-  align-items: flex-end;
+  align-items: center;
   justify-content: flex-end;
   margin-bottom: 30px;
   width: 100%;
@@ -410,6 +411,7 @@ const DashboardMajikRunway: React.FC<DashboardMajikRunwayProps> = ({
       content: (
         <>
           <TopHeaderRow>
+            <ThemeToggle />
             <MajikRunwayHealthIndicator
               health={dashboardSnapshot.runwayHealth}
             />
@@ -485,8 +487,8 @@ const DashboardMajikRunway: React.FC<DashboardMajikRunwayProps> = ({
               </CardTitle>
               <CardValue>
                 {dashboardSnapshot.nextMonthRevenue.format()}
+                <CardSubtext>Next Month</CardSubtext>
               </CardValue>
-              <CardSubtext>Next Month</CardSubtext>
             </Card>
 
             {/* ===== SubHeader / Secondary KPI Cards ===== */}
@@ -517,8 +519,8 @@ const DashboardMajikRunway: React.FC<DashboardMajikRunwayProps> = ({
                   dashboardSnapshot.revenueGrowthRateCMGR ?? 0,
                   true
                 )}
+                <CardSubtext>MoM</CardSubtext>
               </CardValue>
-              <CardSubtext>MoM</CardSubtext>
             </Card>
             <Card>
               <CardTitle>

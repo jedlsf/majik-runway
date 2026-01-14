@@ -56,7 +56,11 @@ const ChartCashflowBar: React.FC<ChartCashflowBarProps> = ({ data }) => {
       },
 
       xaxis: {
-        title: { text: "Month", standoff: 20 },
+        title: {
+          text: "Month",
+          standoff: 20,
+          font: { color: theme.colors.textPrimary },
+        },
         showgrid: true,
         zeroline: false,
         gridcolor: theme.colors.secondaryBackground,
@@ -77,6 +81,7 @@ const ChartCashflowBar: React.FC<ChartCashflowBarProps> = ({ data }) => {
         automargin: true,
       },
     }),
+
     []
   );
 

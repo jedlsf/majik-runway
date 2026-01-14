@@ -171,7 +171,7 @@ const MajikRunwayHealthIndicator: React.FC<MajikRunwayHealthIndicatorProps> = ({
     <RootContainer>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <IndicatorButton status={health.status} />
+          <IndicatorButton status={health.status} title="Health Status" />
         </DropdownMenuTrigger>
 
         <StyledDropdownMenuContent align="end">

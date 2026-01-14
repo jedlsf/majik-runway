@@ -13,8 +13,8 @@ import {
 
 import { SectionSubTitle } from "../../globals/styled-components";
 
-import DuoButton from "../foundations/DuoButton";
 import PeriodSetter from "./PeriodSetter";
+import DuoButton from "../foundations/DuoButton";
 
 // Styled components
 const BodyContainer = styled.div`
@@ -96,8 +96,15 @@ export const PeriodConfig: React.FC<PeriodConfigProps> = ({
   };
 
   const handleUpdatePeriod = (input: PeriodYYYYMM) => {
+    if (
+      input.endMonth === periodInstance.endMonth &&
+      input.startMonth === periodInstance.startMonth
+    ) {
+      setIsDirty(false);
+      return;
+    }
+
     try {
- 
       setperiodInstance((prev) => {
         return {
           ...prev,
@@ -140,6 +147,7 @@ export const PeriodConfig: React.FC<PeriodConfigProps> = ({
         <DuoButton
           textButtonA="Revert"
           textButtonB="Save Changes"
+          isDisabledButtonA={!isDirty}
           isDisabledButtonB={!isDirty}
           onClickButtonA={handleRevert}
           onClickButtonB={handleSubmitSave}

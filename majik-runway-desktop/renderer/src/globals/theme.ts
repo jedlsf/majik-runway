@@ -60,7 +60,7 @@ export const theme: DefaultTheme = {
     primaryBackground: "#f8eee2",
     secondaryBackground: "#f2e0cb",
     brand: {
-      green: "#9b9e00ff",
+      green: "#d6f500",
       red: "#ff471e",
       blue: "#002968",
       white: "#f7f7f7",
