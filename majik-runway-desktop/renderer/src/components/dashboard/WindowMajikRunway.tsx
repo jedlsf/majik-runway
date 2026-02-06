@@ -142,7 +142,7 @@ export const WindowMajikRunway = () => {
           "All existing runway settings are now cleared and reset. You may now start a new session.",
       });
     };
-    const removeCleartListener =
+    const removeClearListener =
       window.electron.onClearTriggered(handleClearSession);
 
     const removeImportListener =
@@ -153,7 +153,7 @@ export const WindowMajikRunway = () => {
     return () => {
       removeImportListener();
       removeExportListener();
-      removeCleartListener();
+      removeClearListener();
     };
   }, [majik, updateInstance, clearSession]);
 

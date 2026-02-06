@@ -309,4 +309,7 @@ electron_1.ipcMain.handle("export-data", async (event, { base64Content, fileName
     }
     return false;
 });
+if (process.platform === "win32") {
+    electron_1.app.setAppUserModelId("com.majik.runway");
+}
 electron_1.app.whenReady().then(createWindow);

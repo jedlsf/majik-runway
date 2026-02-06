@@ -324,4 +324,8 @@ ipcMain.handle("export-data", async (event, { base64Content, fileName }) => {
   return false;
 });
 
+if (process.platform === "win32") {
+  app.setAppUserModelId("com.majik.runway");
+}
+
 app.whenReady().then(createWindow);
